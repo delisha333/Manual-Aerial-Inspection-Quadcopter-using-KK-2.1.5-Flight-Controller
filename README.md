@@ -1,96 +1,68 @@
-# 🚁 UAV Drone using Pixhawk
+# 🚁 Manual Aerial Inspection Quadcopter using KK 2.1.5
 
-## What this project is about
-This project is my attempt to understand how a drone actually stabilizes itself in air using a Pixhawk flight controller.
+## Problem Statement
+Manual inspection of small areas (fields, rooftops, structures) is time-consuming and limited by ground-level visibility.
 
-Instead of just assembling components, I focused on understanding the complete flow — from sensing orientation to correcting it using motors.
-
----
-
-## How I understand a drone now
-
-A drone is basically a feedback system that keeps correcting itself continuously.
-
-The working can be broken into 3 parts:
-
-### 1. Sensing
-The drone uses an IMU (accelerometer + gyroscope) to detect its orientation.
-
-- Accelerometer → tells tilt  
-- Gyroscope → tells rotation  
-
-So at any moment, the drone knows if it is tilting or rotating.
+A simple aerial system can provide a better view and faster inspection.
 
 ---
 
-### 2. Processing (Pixhawk)
-Pixhawk acts as the brain.
+## Proposed Solution
+This project implements a quadcopter drone using the KK 2.1.5 flight controller to perform manual aerial inspection.
 
-- It reads sensor data  
-- Compares it with the desired position (stable / level)  
-- Calculates the error  
-
-Example:
-If the drone tilts to the right, Pixhawk detects that deviation.
+The system provides:
+- Stable flight using onboard sensors
+- Real-time manual control
+- Aerial visibility for inspection tasks
 
 ---
 
-### 3. Actuation (Motors + ESC)
-Based on the error, Pixhawk sends PWM signals to ESCs.
+## Flight Controller Used
+The system uses the KK 2.1.5 flight controller.
 
-- ESC controls motor speed  
-- Motor speed changes thrust  
-
-Example:
-If the drone tilts right → left motors speed up → drone balances
+- Stabilization using gyroscope and accelerometer
+- Configuration using onboard LCD interface
+- No external ground station required
 
 ---
 
-## Complete Loop
+## System Overview
+The drone works as a feedback stabilization system:
 
-Sensor → Pixhawk → Motor → Correction → Sensor again
+Sensor → Controller → Motor → Correction
 
-This loop runs continuously, which keeps the drone stable.
-
----
-
-## What I worked on in this project
-- Understanding Pixhawk connections and working  
-- Studying how PWM controls ESC and motor speed  
-- Basic IMU data interpretation  
-- Exploring control logic (PID concept)  
-- System-level understanding of drone stabilization  
+The KK controller continuously adjusts motor speeds to maintain balance.
 
 ---
 
-## Challenges I faced
-- Initially, I couldn’t connect how sensors affect motor output  
-- PWM and ESC working was confusing at first  
-- Understanding how fast corrections happen in real time  
+## My Contribution
+- Assembled full quadcopter hardware (frame, motors, ESC)
+- Integrated KK 2.1.5 flight controller
+- Performed ESC calibration and motor testing
+- Tuned stabilization parameters using onboard interface
+- Understood system-level behavior of drone stabilization
 
 ---
 
-## What I learned
-- A drone is not just hardware — it is a control system  
-- Stability comes from continuous feedback and correction  
-- Even small errors are corrected instantly using motor speed changes  
+## Application Use Case
+- Field inspection
+- Rooftop inspection
+- Small-area aerial monitoring
 
 ---
 
-## Future improvements
-- Add obstacle avoidance  
-- Improve control tuning  
-- Explore autonomous navigation  
+## What I Learned
+- How stabilization works in drones
+- How motor speed affects orientation
+- Importance of calibration
+- Real-world challenges in hardware integration
 
 ---
 
-##  Documentation
-
-- [System Flow](docs/system_flow.md)
-- [My Understanding](docs/my_understanding.md)
-- [Pixhawk Workflow](docs/pixhawk_workflow.md)
-- [Mission Planner Usage](docs/mission_planner_usage.md)
-
+## Future Scope
+- Upgrade to Pixhawk-based autonomous system
+- Add camera for live monitoring
+- Implement semi-autonomous flight
 
 ---
 
