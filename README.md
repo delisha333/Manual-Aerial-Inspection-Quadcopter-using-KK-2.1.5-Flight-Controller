@@ -84,10 +84,13 @@ This loop runs continuously, which keeps the drone stable.
 
 ---
 
-## Project Structure
-- `firmware/` → basic control and logic code  
-- `hardware/` → circuit and design files  
-- `docs/` → explanations and notes  
+##  Documentation
+
+- [System Flow](docs/system_flow.md)
+- [My Understanding](docs/my_understanding.md)
+- [Pixhawk Workflow](docs/pixhawk_workflow.md)
+- [Mission Planner Usage](docs/mission_planner_usage.md)
+- [Problems Faced](docs/problems_faced.md)
 
 ---
 
